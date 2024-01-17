@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Values version="2.0">
+  <value name="node_type">webMethods/trigger</value>
+  <value name="node_subtype">unknown</value>
+  <value name="node_nsName">jc.kafka.example.consumer:collectTemperatures</value>
+  <value name="node_pkg">JcKafkaExample</value>
+  <value name="node_comment"></value>
+  <value name="is_public">false</value>
+  <value name="displayName"></value>
+  <value name="favorite"></value>
+  <value name="tags"></value>
+  <value name="since"></value>
+  <value name="deprecated"></value>
+  <value name="is_visible"></value>
+  <value name="trigger_type">streaming-trigger</value>
+  <record name="trigger" javaclass="com.wm.util.Values">
+    <value name="auditOption">0</value>
+    <record name="auditSettings" javaclass="com.wm.util.Values">
+      <value name="document_data">0</value>
+      <value name="startExecution">false</value>
+      <value name="stopExecution">false</value>
+      <value name="onError">true</value>
+    </record>
+    <value name="uniqueId">teOo0ULkHyuubT7I3+66UnT5+HQ=</value>
+    <value name="executeUser">Administrator</value>
+    <value name="maxConsumers">1</value>
+    <value name="minConsumers">1</value>
+    <value name="consumerExpansionDelay">60000</value>
+    <value name="consumerExpansionDelayUnit">MILLISECONDS</value>
+    <value name="consumerCleanupDelay">120000</value>
+    <value name="consumerCleanupDelayUnit">MILLISECONDS</value>
+    <null name="clientId"/>
+    <value name="commitMode">CLIENT_ASYNC</value>
+    <value name="useParallelStreams">false</value>
+    <value name="onDisconnect">ROLLBACK</value>
+    <value name="pollingInterval">5000</value>
+    <value name="pollingIntervalUnit">MILLISECONDS</value>
+    <number name="pollingRequestSize" type="Integer">100</number>
+    <value name="aliasName">jc_kafka_example_conn</value>
+    <Boolean name="enabled">true</Boolean>
+    <value name="transientFailureAction">NONE</value>
+    <value name="failureAction">NONE</value>
+    <null name="resourceMonitorSvc"/>
+    <array name="source" type="record" depth="1">
+      <record javaclass="com.wm.util.Values">
+        <value name="label">stream</value>
+        <value name="referenceId">temperature</value>
+      </record>
+    </array>
+    <record name="window" javaclass="com.wm.util.Values">
+      <value name="type">COUNT_BASED</value>
+      <record name="parameters" javaclass="com.wm.util.Values">
+        <array name="nameValue" type="record" depth="1">
+          <record javaclass="com.wm.util.Values">
+            <value name="name">count</value>
+            <value name="value">100</value>
+          </record>
+          <record javaclass="com.wm.util.Values">
+            <value name="name">timeout</value>
+            <value name="value">10</value>
+          </record>
+          <record javaclass="com.wm.util.Values">
+            <value name="name">timeoutUnit</value>
+            <value name="value">SECONDS</value>
+          </record>
+        </array>
+        <value name="count">100</value>
+        <value name="timeout">10</value>
+        <value name="timeoutUnit">SECONDS</value>
+      </record>
+    </record>
+    <array name="process" type="record" depth="1">
+      <record javaclass="com.wm.util.Values">
+        <value name="processId">stream</value>
+        <array name="intermediate" type="record" depth="1">
+          <record javaclass="com.wm.util.Values">
+            <value name="type">FILTER</value>
+            <record name="parameters" javaclass="com.wm.util.Values">
+              <array name="nameValue" type="record" depth="1">
+                <record javaclass="com.wm.util.Values">
+                  <value name="name">filterExpression</value>
+                  <value name="value">%/stream/value/temperature% &gt; 10.0</value>
+                </record>
+              </array>
+              <value name="filterExpression">%/stream/value/temperature% &gt; 10.0</value>
+            </record>
+          </record>
+        </array>
+        <array name="terminal" type="record" depth="1">
+          <record javaclass="com.wm.util.Values">
+            <value name="type">CALCULATE</value>
+            <record name="parameters" javaclass="com.wm.util.Values">
+              <array name="nameValue" type="record" depth="1">
+                <record javaclass="com.wm.util.Values">
+                  <value name="name">inputElementNames</value>
+                  <value name="value">/stream/value/temperature</value>
+                </record>
+                <record javaclass="com.wm.util.Values">
+                  <value name="name">functions</value>
+                  <value name="value">count,sum,average,min</value>
+                </record>
+                <record javaclass="com.wm.util.Values">
+                  <value name="name">groupByField</value>
+                  <null name="value"/>
+                </record>
+              </array>
+              <value name="inputElementNames">/stream/value/temperature</value>
+              <value name="functions">count,sum,average,min</value>
+            </record>
+          </record>
+        </array>
+      </record>
+    </array>
+    <record name="target" javaclass="com.wm.util.Values">
+      <value name="type">INVOKE_SERVICE</value>
+      <record name="parameters" javaclass="com.wm.util.Values">
+        <array name="nameValue" type="record" depth="1">
+          <record javaclass="com.wm.util.Values">
+            <value name="name">serviceName</value>
+            <value name="value">jc.kafka.example.consumer.collectTemperatures_:stream_target</value>
+          </record>
+        </array>
+        <value name="serviceName">jc.kafka.example.consumer.collectTemperatures_:stream_target</value>
+      </record>
+    </record>
+  </record>
+</Values>

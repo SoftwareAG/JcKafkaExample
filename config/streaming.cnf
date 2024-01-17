@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<IDataXMLCoder version="1.0">
+  <record javaclass="com.wm.data.ISMemDataImpl">
+    <array name="StreamingConfiguration" type="record" depth="1">
+      <record javaclass="com.wm.data.ISMemDataImpl">
+        <value name="name">jc_kafka_example_conn</value>
+        <value name="description">Demo for event streaming</value>
+        <value name="package">JcKafkaExample</value>
+        <value name="type">Kafka</value>
+        <value name="host">http://localhost:29092</value>
+        <value name="clientId">demo__</value>
+        <value name="publishMode">Synchronous</value>
+        <value name="enabled">true</value>
+        <value name="useSSL">No</value>
+        <value name="truststoreAlias"></value>
+        <value name="keystoreAlias"></value>
+        <null name="keystoreKeyAlias"/>
+        <array name="subjects" type="record" depth="1">
+          <record javaclass="com.wm.data.ISMemDataImpl">
+            <value name="referenceId">temperature</value>
+            <value name="topicName">temperature</value>
+            <record name="keyCoder" javaclass="com.wm.data.ISMemDataImpl">
+              <value name="type">STRING</value>
+              <value name="type_display">String</value>
+              <record name="parameters" javaclass="com.wm.data.ISMemDataImpl">
+                <array name="nameValue" type="record" depth="1">
+                  <record javaclass="com.wm.data.ISMemDataImpl">
+                    <value name="name">charsetName</value>
+                    <value name="value">UTF-8</value>
+                  </record>
+                </array>
+              </record>
+              <value name="charsetName">UTF-8</value>
+            </record>
+            <record name="valueCoder" javaclass="com.wm.data.ISMemDataImpl">
+              <value name="type">JSON</value>
+              <value name="type_display">JSON</value>
+              <record name="parameters" javaclass="com.wm.data.ISMemDataImpl">
+                <array name="nameValue" type="record" depth="1">
+                  <record javaclass="com.wm.data.ISMemDataImpl">
+                    <value name="name">charsetName</value>
+                    <value name="value">UTF-8</value>
+                  </record>
+                  <record javaclass="com.wm.data.ISMemDataImpl">
+                    <value name="name">documentTypeName</value>
+                    <value name="value">jc.kafka.example.common.documents:Temperature</value>
+                  </record>
+                  <record javaclass="com.wm.data.ISMemDataImpl">
+                    <value name="name">schema</value>
+                    <null name="value"/>
+                  </record>
+                </array>
+              </record>
+              <value name="documentTypeName">jc.kafka.example.common.documents:Temperature</value>
+              <value name="charsetName">UTF-8</value>
+              <null name="schema"/>
+            </record>
+            <value name="aliasName">jc_kafka_example_conn</value>
+          </record>
+        </array>
+      </record>
+    </array>
+  </record>
+</IDataXMLCoder>
