@@ -10,4 +10,4 @@ This is a demo package to show case the new event trigger introduced with webMet
 * [webMethods Service Designer 11.0 Preview](https://tech.forums.softwareag.com/t/webmethods-service-designer-download/235227) - We have already pre-installed our new messaging package in this release.
 * [Rancher Desktop](https://rancherdesktop.io) or [Docker Desktop](https://www.docker.com/products/docker-desktop/) - This will allow you to spin up your own Kafka confluence engine locally to complete the messaging end to end.
 
-Then follow the tech article 
+Then follow the tech article [An Introduction to our new messaging tools](https://tech.forums.softwareag.com/t/an-introduction-to-our-new-messaging-tools/289927) explains how to use our new event trigger and references this package as the example shown.
