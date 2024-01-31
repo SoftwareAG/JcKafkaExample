@@ -11,3 +11,7 @@ This is a demo package to show case the new event trigger introduced with webMet
 * [Rancher Desktop](https://rancherdesktop.io) or [Docker Desktop](https://www.docker.com/products/docker-desktop/) - This will allow you to spin up your own Kafka confluence engine locally to complete the messaging end to end.
 
 Then follow the tech article [An Introduction to our new messaging tools](https://tech.forums.softwareag.com/t/an-introduction-to-our-new-messaging-tools/289927) explains how to use our new event trigger and references this package as the example shown.
+
+---
+These tools are provided as-is and without warranty or support. They do not constitute part of the Software AG product suite. Users are free to use, fork and modify them, subject to the license agreement. While Software AG welcomes contributions, we cannot guarantee to include every contribution in the master project.
+
